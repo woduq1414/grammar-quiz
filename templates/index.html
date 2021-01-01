@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/index.css') }}">
+    {#    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/quiz.css') }}">#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/ranking.css') }}">
+    <title>문따</title>
+{% endblock %}
+
+{% block main %}
+
+    <div id="container">
+
+
+        <div id="content">
+
+
+            <div id="title">
+                <span class="spotlight">문</span>법 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="spotlight">따</span>먹기
+            </div>
+
+
+{#            <div id="sourceCheckContainer">#}
+{#                <div class="custom-control custom-checkbox sourceCheckWrapper">#}
+{##}
+{#                    <input type="checkbox" class="custom-control-input "#}
+{#                           id="sourceCheck1" data="평가원" checked>#}
+{#                    <label class="custom-control-label"#}
+{#                           for="sourceCheck1">평가원 기출</label>#}
+{##}
+{##}
+{#                </div>#}
+{#                <div class="custom-control custom-checkbox sourceCheckWrapper">#}
+{##}
+{#                    <input type="checkbox" class="custom-control-input "#}
+{#                           id="sourceCheck2" data="수특/수완" checked>#}
+{#                    <label class="custom-control-label"#}
+{#                           for="sourceCheck2">수특 · 수완</label>#}
+{##}
+{##}
+{#                </div>#}
+{#            </div>#}
+
+
+            <a id="startButton" class="btn btn-primary">시작하기</a>
+
+
+            <span id="openInfo">정보</span>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block script %}
+    <script>
+
+        $("#startButton").on("click", function () {
+
+            let s1 = $("#sourceCheck1").prop("checked");
+            let s2 = $("#sourceCheck2").prop("checked");
+            console.log(s1, s2);
+            location.href = `{{ url_for("quiz.quiz") }}?s1=${s1}&s2=${s2}&re=true`
+        })
+
+
+
+    </script>
+{% endblock %}

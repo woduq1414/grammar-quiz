@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/quiz.css') }}">
+    <title>문따</title>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block main %}
+
+    <div id="container">
+
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script>
+
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                url: "/quiz/get-quiz",
+                statusCode: {
+
+                    200: function (data) {
+
+                        $("#container").append(data);
+
+
+                    },
+                    401: function (data) {
+                        location.href = "./";
+                    }
+                }
+
+            })
+        })
+
+    </script>
+
+
+{% endblock %}

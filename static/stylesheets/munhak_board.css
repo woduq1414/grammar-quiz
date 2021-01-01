@@ -1,0 +1,785 @@
+#contentContainer {
+
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 15px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    /*border : 2px solid grey;*/
+    box-shadow: 0px 0px 8px -5px rgba(0, 0, 0, 0.3);
+    height: 50%;
+    overflow-y: auto;
+}
+
+#title {
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+.source, .category {
+    font-size: 1.2rem;
+}
+
+#category_source {
+    font-size: 1.2rem;
+}
+
+#writer {
+    font-size: 1.2rem;
+}
+
+.pgTitle {
+    font-size: 1.8rem;
+    display: inline-block;
+    /*margin-left: 1rem;*/
+    margin-bottom: 0.5rem;
+    background-color: var(--primary-color-bright);
+    padding: 0rem 0.8rem;
+    border-radius: 5px;
+}
+
+.pgContent {
+    width: 100%;
+    font-size: 1.6rem;
+}
+
+.pgContainer {
+    width: 100%;
+    margin: 0rem 0.5rem 2rem 0.5rem;
+}
+
+#bottomContent {
+    margin-top: 1.5rem;
+}
+
+.videoWrapper {
+    width: 350px;
+    text-align: center;
+    cursor: pointer;
+
+    /*display: inline-block;*/
+}
+
+.videoTitle {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+
+img.videoThumbnail {
+    width: 250px;
+    /*height: auto;*/
+}
+
+#mVideos, #eVideos {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.navbar {
+    display: flex;
+    flex-shrink: 0;
+    /*height: 100px;*/
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+}
+
+#contentContainer {
+    overflow-y: auto;
+    /* height: 100%; */
+    /*display: flex;*/
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+
+.tag {
+    background-color: var(--tag-color);
+    font-size: 1.3rem;
+    border-radius: 9999px;
+    padding: 0.2rem 1rem;
+    margin: 0.2rem 0.5rem;
+    cursor: pointer
+}
+
+#tagContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+@media screen and (max-width: 768px) {
+    .videoWrapper {
+        width: 95%;
+    }
+
+    img.videoThumbnail {
+        width: 100%;
+        /*height: auto;*/
+    }
+}
+
+
+#cardContainer {
+    /*background-color: #eee;*/
+}
+
+.hiddenValue {
+    display: none;
+}
+
+#cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /*flex-direction: column;*/
+}
+
+.munhakCard {
+    /*width: 45%;*/
+    /*border-top: 1px solid grey;*/
+    /*border-bottom: 1px solid grey;*/
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.munhakCardWrapper {
+    width: 90%;
+}
+
+.munhakCardWrapper .upperText {
+    font-size: 1.8rem;
+}
+
+.munhakCardWrapper .bottomText {
+
+}
+
+
+#goPrevPage, #goNextPage {
+    text-align: center;
+    background-color: #eee;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1rem 0;
+
+    display: none;
+}
+
+.addTagButton {
+
+    text-align: center;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.addTagPopoverWrapper {
+    text-align: center;
+}
+
+#openAddTagPopover {
+    background-color: var(--primary-color-bright);
+}
+
+#tagPopoverWrapper {
+    padding: 0.3rem 1rem;
+    text-align: center;
+}
+
+#tagLikeCount {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+}
+
+#tagLikeHeart {
+    margin-top: 1rem;
+    border-radius: 99999px;
+    padding: 0.5rem 0.7rem;
+    background-color: #eee;
+    text-align: center;
+    color: grey;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+}
+
+.tagLike {
+    color: deeppink !important;
+}
+
+.userTagLiked {
+    background-color: pink !important;
+}
+
+.userTag {
+    margin-bottom: 0.4rem;
+}
+
+#userTagContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+#tagPopoverSearchButton {
+    font-size: 0.8rem;
+    margin: 0.5rem 0.2rem;
+    cursor: pointer;
+}
+
+#tagPopoverDeleteButton {
+    color: red;
+    font-size: 0.8rem;
+    margin: 0.5rem 0.2rem;
+    cursor: pointer;
+}
+
+#tagPopoverButtonWrapper {
+    margin-top: 0.5rem;
+}
+
+.addVideo {
+    background-color: var(--primary-color-bright);
+    color: black;
+    border-radius: 9999px;
+    width: 240px;
+    margin: 0 auto;
+    cursor: pointer;
+
+}
+
+.addVideoWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 350px;
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.videoWrapper {
+    margin: 0.5rem 0.5rem;
+
+}
+
+@media screen and (max-width: 768px) {
+    .videoWrapper {
+        margin: 0.8rem 0;
+        width: 95%;
+    }
+
+    .addVideoWrapper {
+        width: 95%;
+    }
+}
+
+
+#openAddMunhakVideoModal {
+
+}
+
+
+#videoPopoverWrapper {
+    padding: 0.3rem 1rem;
+    text-align: center;
+}
+
+
+#videoPopoverLinkButton {
+    font-size: 0.8rem;
+    margin: 0.5rem 0.4rem;
+    cursor: pointer;
+}
+
+#videoPopoverDeleteButton {
+    color: red;
+    font-size: 0.8rem;
+    margin: 0.5rem 0.4rem;
+    cursor: pointer;
+}
+
+#videoPopoverButtonWrapper {
+    margin-top: 0.5rem;
+}
+
+#searchContainer {
+
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 15px;
+    margin: 0rem auto;
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    /*border : 2px solid grey;*/
+    box-shadow: 0px 0px 8px -5px rgba(0, 0, 0, 0.3);
+
+    /*background-color: var(--primary-color-bright);*/
+}
+
+
+#searchWrapper {
+    width: 90%;
+    /*height: 50px;*/
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 0px 8px -5px rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    cursor: pointer;
+
+    background-color: #f9f9f9
+
+}
+
+#searchButton {
+    text-align: right;
+    cursor: pointer;
+}
+
+#searchInput {
+
+}
+
+#searchInputReal {
+    border: 0;
+}
+
+#searchInputContent {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.searchTag {
+    font-size: 1rem;
+    /*display: flex;*/
+    background-color: var(--primary-color-bright);
+}
+
+#searchInputTagWrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+
+/**,*/
+/**::before,*/
+/**::after {*/
+/*  box-sizing: border-box;*/
+/*}*/
+
+.input-sizer {
+    display: inline-grid;
+    vertical-align: top;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    /*border: solid 1px;*/
+    /*padding: .25em .5em;*/
+    /*margin: 5px;*/
+}
+
+.input-sizer.stacked {
+    /*padding: .5em;*/
+    -webkit-box-align: stretch;
+    align-items: stretch;
+}
+
+.input-sizer.stacked::after,
+.input-sizer.stacked input,
+.input-sizer.stacked textarea {
+    grid-area: 2 / 1;
+}
+
+.input-sizer::after,
+.input-sizer input,
+.input-sizer textarea {
+    width: auto;
+    /*min-width: 1em;*/
+    grid-area: 1 / 1;
+    font: inherit;
+    /*padding: 0.25em;*/
+    margin: 0;
+    resize: none;
+    background: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+}
+
+.input-sizer span {
+    /*padding: 0.25em;*/
+}
+
+.input-sizer::after {
+    content: attr(data-value) " ";
+    visibility: hidden;
+    white-space: pre-wrap;
+}
+
+.input-sizer:focus-within textarea:focus,
+.input-sizer:focus-within input:focus {
+    outline: none;
+}
+
+.input-sizer {
+    margin: 0;
+    min-width: 1.5rem;
+}
+
+
+.searchTagInput {
+    border: 0;
+}
+
+.searchTagDelete {
+    margin-left: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+.searchResultTag {
+    font-size: 1rem;
+    margin-left: 0;
+}
+
+.searchResultTagContainer {
+    margin-top: 0.3rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+@media screen and (max-width: 768px) {
+    .searchResultTag {
+
+    }
+}
+
+.searchQueryTag {
+    background-color: var(--primary-color-bright);
+}
+
+#ui-id-1 {
+    z-index: 9999;
+}
+
+
+#openDetailSearch {
+    margin-top: 0.5rem;
+    text-align: center;
+    color: grey;
+
+}
+
+#categoryCheckContainer {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.categoryCheckWrapper {
+    margin: 0.8rem;
+}
+
+#sourceCheckContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.sourceCheckWrapper {
+    margin: 0.8rem;
+}
+
+#categoryCheckAll, #categoryCheckNone, #sourceCheckAll, #sourceCheckNone {
+    background-color: #eee;
+    border-radius: 5px;
+    margin: 0 0rem 0 1rem;
+    padding: 0 0.8rem;
+    cursor: pointer;
+}
+
+#searchResult {
+    font-size: 1rem;
+
+}
+
+#openDetailSearch {
+    /*background-color: #f9f9f9;*/
+    /*border-radius: 5px;*/
+    margin: 0 0rem 0 1rem;
+    /*padding: 0 0.8rem;*/
+
+
+    cursor: pointer;
+    text-align: center;
+
+}
+
+#openDetailSearchWrapper {
+    text-align: center;
+    margin-top: 0.3rem;
+}
+
+
+.tip {
+    /*transform: 1s all;*/
+    height: 5rem;
+    overflow: hidden;
+    filter: blur(3px);
+    padding: 0.2rem 1rem;
+
+    /*position: absolute;*/
+}
+
+.tipWrapper {
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px -5px rgba(0, 0, 0, 0.3);
+    margin: 1rem 0rem;
+    width: 98%;
+    background-color: #f8f8f8;
+    /*position: absolute;*/
+}
+
+.tipWrapper[data-toggle=true] {
+    background-color: white;
+}
+
+
+.openTip, .closeTip {
+
+    font-size: 1.2rem;
+
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.closeTip {
+    display: none;
+}
+
+#tipContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#addTip {
+    background-color: var(--primary-color-bright);
+    color: black;
+    border-radius: 9999px;
+    width: 240px;
+    margin: 0 auto;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+
+.bottomTipInfo {
+    margin-top: 2.5rem;
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.tipLikeCount {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.tipLikeHeart {
+    margin-top: 1rem;
+    border-radius: 99999px;
+    padding: 0.5rem 0.7rem;
+    background-color: #eee;
+    text-align: center;
+    color: grey;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+    padding-right: 0.4rem;
+}
+
+.tipLike {
+    color: deeppink !important;
+}
+
+.tipWriterNickname {
+    font-size: 1.2rem;
+}
+
+
+#relatedContainer {
+    font-size: 1.2rem;
+}
+
+.related {
+    font-size: 1.1rem;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    padding: 0.1rem 0.8rem;
+    margin-right: 0.5rem;
+    line-height: 2.3rem;
+}
+
+.relatedPrimary {
+    background-color: var(--primary-color-bright);
+    font-size: 1.3rem !important;
+
+}
+
+.munhakCardWrapper {
+    cursor: pointer;
+}
+
+#centerContent {
+    margin: auto;
+    text-align: center;
+    word-break: keep-all;
+}
+
+#goRandomMunhak {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+
+@media screen and (max-width: 768px) {
+    .popoverButton {
+        font-size: 1.8rem !important;
+        margin: 1.5rem;
+    }
+}
+
+
+body.dark-mode #contentContainer, body.dark-mode #searchContainer {
+    background-color: #232323;
+}
+
+body.dark-mode .pgTitle {
+    background-color: #343434;
+    border-bottom: 1px solid var(--primary-color-bright);
+}
+
+body.dark-mode .tag {
+    background-color: #343434 !important;
+}
+
+body.dark-mode .related {
+    background-color: #343434;
+}
+
+body.dark-mode .popover-body {
+    color: #bbb;
+    background-color: #343434;
+}
+
+body.dark-mode .popover-header {
+    color: #bbb;
+    border-bottom-color: black;
+    background-color: #343434;
+}
+
+body.dark-mode .arrow::after {
+    border-top-color: #343434
+}
+
+body.dark-mode .swal2-modal {
+    background-color: #343434;
+
+}
+
+body.dark-mode .swal2-title, body.dark-mode .swal2-content {
+    color: #bbb;
+}
+
+
+body.dark-mode .relatedPrimary {
+    color: #bbb;
+    border: 1px solid var(--primary-color-bright);
+}
+
+
+body.dark-mode .userTagLiked {
+    border: 1px solid mediumpurple;
+    /*border-top: 1px solid deeppink;*/
+}
+
+body.dark-mode #tagLikeHeart, body.dark-mode .tipLikeHeart {
+    background-color: #666;
+
+}
+
+body.dark-mode .tagLike {
+    color: mediumpurple !important;
+}
+
+body.dark-mode .tipLike {
+    color: mediumpurple !important;
+}
+
+body.dark-mode .tipWrapper {
+    background-color: #343434;
+}
+
+body.dark-mode .tipWrapper[data-toggle=true] {
+    background-color: #343434;
+}
+
+body.dark-mode #openAddTagPopover, body.dark-mode #openAddMunhakVideoModal, body.dark-mode #openAddExamVideoModal, body.dark-mode #addTip {
+    background-color: #343434;
+    border-bottom: 1px solid var(--primary-color-bright);
+    color: #bbb;
+}
+
+body.dark-mode #searchWrapper {
+    background-color: #343434;
+}
+
+body.dark-mode #searchInputReal {
+    color: #bbb;
+}
+
+body.dark-mode .searchTag {
+    background-color: #555 !important;
+}
+
+body.dark-mode .searchTagInput {
+    color: #bbb;
+}
+
+
+body.dark-mode #categoryCheckAll, body.dark-mode #categoryCheckNone, body.dark-mode #sourceCheckAll, body.dark-mode #sourceCheckNone {
+    background-color: #343434;
+}
+
+#writer, #source, #category {
+    cursor: pointer;
+}
+
+body.dark-mode #goNextPage, body.dark-mode #goPrevPage {
+    background-color: #454545;
+}

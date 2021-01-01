@@ -1,0 +1,271 @@
+#container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+}
+
+#content, #content2 {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+
+#upperBox {
+    display: flex;
+    /*height : 3rem;*/
+
+    justify-content: space-between;
+    padding: 20px;
+
+}
+
+
+#quizNo {
+    font-size: 1.5rem;
+    background-color: gold;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+#category {
+    font-size: 1.5rem;
+    background-color: mediumpurple;
+    padding: 5px 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+#hint {
+    font-size: 2rem;
+    padding: 0 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px;
+}
+
+
+
+.optionResult {
+    margin: 10px auto;
+}
+
+
+.option:hover {
+    opacity: 0.7;
+}
+
+
+#total-munhak {
+    text-align: right;
+    font-size: 1rem;
+    margin-right: 0.8rem;
+}
+
+#option1 {
+    background-color: #fad09e;
+}
+
+#option2 {
+    background-color: #b2df9c;
+}
+
+#option3 {
+    background-color: #99e5e5;
+}
+
+#option4 {
+    background-color: #c2a5df;
+}
+
+
+/*q::before {*/
+/*    content: "“";*/
+/*}*/
+/*q::after {*/
+/*  content: "”";*/
+/*}*/
+
+q {
+    quotes: "‘" "’" "“" "”" "‘" "’" "“" "”";
+
+}
+
+q::before,
+q::after {
+    /*animation: dancing 1s linear infinite;*/
+    display: inline-block;
+    transform: scale(2)
+}
+
+
+#title {
+    font-size: 3rem;
+    text-align: center;
+}
+
+#startButton {
+    text-align: center;
+    color: white;
+}
+
+
+#message, .message {
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+#share {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    margin-top: 1rem;
+}
+
+#kakao-link-btn {
+    margin-left: 15px;
+}
+
+
+html,
+body, main {
+    height: 100%;
+    width: 100%;
+    font-family: 'Noto Serif KR', serif;
+}
+
+
+@media screen and (max-width: 768px) {
+    #content, #content2 {
+        width: 95%;
+
+    }
+
+
+}
+
+
+#goLoginButton {
+    border-radius: 15px;
+    padding: 10px;
+    /* border: 2px solid grey; */
+    box-shadow: 0px 0px 11px -5px rgba(0, 0, 0, 0.3);
+    width: 40%;
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 1rem auto 0rem auto;
+}
+
+
+@media screen and (max-width: 768px) {
+    #goLoginButton {
+
+        width: 80%;
+
+    }
+
+}
+
+
+#content, #content2 {
+    background-color: white;
+}
+
+
+#container {
+    transition: 1s all;
+}
+
+
+
+
+#description {
+    margin: 1rem 0 0 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+#wrongSentence {
+    margin: 1rem;
+
+}
+
+.word {
+    font-size: 1.5rem;
+    margin: 0.2rem 0.06rem;
+    padding: 0.1rem 0.2rem;
+    cursor: pointer;
+}
+
+.word:hover {
+    background-color: #e3e3e3;
+
+    border-radius: 1rem;
+}
+
+.wrong_word, .correct_word {
+    font-size: 1.5rem;
+    margin: 0.2rem 0.06rem;
+    cursor: pointer;
+}
+
+.highlight_word {
+    font-size: 2rem;
+    color: red;
+}
+
+.resultImage {
+    height: 200px;
+    margin: 1rem auto;
+}
+
+#content, #content2 {
+    padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .resultImage {
+        max-width: 95%;
+    }
+}
+
+
+.normalWord {
+    font-size: 1.5rem;
+    margin: 0.2rem 0.06rem;
+    padding: 0.1rem 0rem;
+    cursor: pointer;
+}
+
+
+.option {
+    font-size: 1.5rem;
+    margin: 0.2rem 0.06rem;
+    padding: 0.1rem 0.2rem;
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+.option.selectedOption {
+    background-color: #ddd;
+}
+
+.option:hover {
+    background-color: #e3e3e3;
+
+
+}

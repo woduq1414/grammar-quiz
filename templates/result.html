@@ -1,0 +1,166 @@
+<div id="content">
+
+
+    {% if data.type == "option" %}
+        <div type="option">
+            <div>
+
+
+                {% set count = namespace(value=0) %}
+                {% for word in data.problem_sentence.split() %}
+
+                    {% if word == "<빈칸>" %}
+
+                        <span class="optionWordContainer" group="{{ data.key_list[count.value]["nth_word"] }}" data="">
+                        (
+                            {% for option in data.key_list[count.value]["key"] %}
+                                <span class="normalWord {{ "highlight_word" if data.correct_list[count.value] == option else "" }}"
+                                      data="{{ option }}">
+                                {{ option }}
+                            </span>
+
+                                {% if loop.length > loop.index %}
+                                    /
+                                {% endif %}
+
+
+                            {% endfor %}
+                            )
+                    </span>
+
+
+                        {% set count.value = count.value + 1 %}
+                    {% else %}
+                        <span class="normalWord">{{ word }}</span>
+                    {% endif %}
+
+                {% endfor %}
+
+
+
+            </div>
+
+
+        </div>
+
+
+    {% endif %}
+
+    {% if data.type == "choose" %}
+        <div type="choose">
+            <div>
+
+
+                {% for word in data.wrong_sentence.split() %}
+
+
+                    <span class="wrong_word" data="{{ loop.index0 }}">{{ word }}</span>
+
+                {% endfor %}
+                <br>
+                <span style="font-size: 1.8rem"> -> </span>
+                <br>
+                {% for word in data.correct_sentence.split() %}
+
+
+                    <span class="correct_word" data="{{ loop.index0 }}">{{ word }}</span>
+
+                {% endfor %}
+
+
+            </div>
+
+
+        </div>
+
+
+    {% endif %}
+
+
+    {% if data.is_success == True %}
+        <img class="resultImage" src="/images/success1.jpg">
+    {% else %}
+        <img class="resultImage" src="/images/fail1.jpg">
+
+    {% endif %}
+
+    <div id="nextButton" class="btn btn-primary">
+        다음 문제
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            let wrong_nth = {{ data.wrong_nth_word }};
+            let
+                correct_nth =
+            {{ data.correct_nth_word }}
+
+            for (let i of wrong_nth) {
+                $(`.wrong_word[data=${i}]`).addClass("highlight_word")
+            }
+            for (let i of correct_nth) {
+                $(`.correct_word[data=${i}]`).addClass("highlight_word")
+            }
+
+
+        })
+        $("#content #nextButton").on("click", function () {
+
+            $("#content #nextButton").off("click");
+
+
+            $.ajax({
+                type: "POST",
+                url: "./get-quiz",
+
+                success: function (data) {
+
+                    $("#container").animate({"background-color": "#91e4ff"}, 100, function () {
+                        setTimeout(function () {
+                            $("#container").animate({"background-color": "white"}, 100, function () {
+
+                            });
+                        }, 500);
+
+                    });
+
+                    $("#content").attr("id", "content2");
+                    $("#content2").css("position", "fixed");
+                    $("#content2").animate({top: -$("#content2").height() - 50}, 500, function () {
+                        $("#content2").remove();
+                    });
+
+
+                    $("#container").append(
+                        data
+                    );
+                    {#$("#content").hide();#}
+                    $("#content").css("position", "fixed");
+                    $("#content").css("top", "unset");
+                    $("#content").css("top", `${$(document).height()}px`);
+
+                    console.log(($(document).height() - $("#content").height()) / 2)
+
+                    $temp = $("#content");
+                    $temp.animate({top: ($(document).height() - $temp.height()) / 2 - 16}, 700, function () {
+                        setTimeout(function () {
+                            $temp.css("position", "unset");
+                        }, 500);
+
+                    });
+
+
+                    {#window.location.reload();#}
+                }
+
+            })
+
+        })
+    </script>
+
+</div>
+
+
+
+

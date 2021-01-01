@@ -1,0 +1,160 @@
+<div id="content">
+
+
+    {% if data.type == "choose" %}
+
+        <div id="description">
+            틀린 부분을 골라주세요!
+        </div>
+
+        <div id="wrongSentence">
+
+            {% for word in data.wrong_sentence.split() %}
+
+
+                <span class="word" data="{{ loop.index0 }}">{{ word }}</span>
+
+            {% endfor %}
+        </div>
+
+    {% endif %}
+
+    {% if data.type == "option" %}
+
+        <div id="description">
+            (  ) 안에서 알맞은 것을 골라주세요!
+        </div>
+
+        <div id="wrongSentence">
+
+
+            {% set count = namespace(value=0) %}
+            {% for word in data.problem_sentence.split() %}
+
+                {% if word == "<빈칸>" %}
+
+                    <span class="optionWordContainer" group="{{ data.key_list[count.value]["nth_word"] }}" data="">
+                        (
+                        {% for option in data.key_list[count.value]["key"] %}
+                            <span class="option" data="{{ option }}">
+                                {{ option }}
+                            </span>
+
+                            {% if loop.length > loop.index %}
+                                /
+                            {% endif %}
+
+
+                        {% endfor %}
+                        )
+                    </span>
+
+
+                    {% set count.value = count.value + 1 %}
+                {% else %}
+                    <span class="normalWord">{{ word }}</span>
+                {% endif %}
+
+            {% endfor %}
+
+
+        </div>
+
+        <div id="goAnswer" class="btn btn-primary">
+            확인
+        </div>
+
+    {% endif %}
+
+
+
+
+
+    <script>
+
+        $("#content .option").on("click", function () {
+            $(this).parent(".optionWordContainer").find(".option").removeClass("selectedOption")
+            $(this).addClass("selectedOption")
+            $(this).parent(".optionWordContainer").attr("data", $(this).attr("data"))
+        })
+
+
+        $("#content #goAnswer").on("click", function () {
+
+
+            let option = {}
+            $(".optionWordContainer").each(function (index, item) {
+                if ($(item).attr("data") == "") {
+                    option = undefined
+                    return
+                }
+                option[$(item).attr("group")] = $(item).attr("data")
+
+
+            })
+            if (option === undefined) {
+                return
+            }
+
+            console.log(option)
+
+            $("#content #goAnswer").off("click");
+            $("#content .option").off("click");
+
+            $.ajax({
+                type: "POST",
+                url: "./answer",
+                data: JSON.stringify({"option": option}),
+                contentType: "application/json; charset=utf-8",
+
+                success: function (data) {
+                    console.log(data)
+                    $("#container").animate({"background-color": "#91e4ff"}, 100, function () {
+                        setTimeout(function () {
+                            $("#container").animate({"background-color": "white"}, 100, function () {
+
+                            });
+                        }, 500);
+
+                    });
+
+                    $("#content").attr("id", "content2");
+                    $("#content2").css("position", "fixed");
+                    $("#content2").animate({top: -$("#content2").height() - 50}, 500, function () {
+                        $("#content2").remove();
+                    });
+
+
+                    $("#container").append(
+                        data
+                    );
+                    {#$("#content").hide();#}
+                    $("#content").css("position", "fixed");
+                    $("#content").css("top", "unset");
+                    $("#content").css("top", `${$(document).height()}px`);
+
+                    console.log($("#content").height())
+                    console.log(($(document).height() - $("#content").height()) / 2)
+
+                    $temp = $("#content");
+                    $temp.animate({top: ($(document).height() - $temp.height()) / 2 - 16}, 700, function () {
+                        setTimeout(function () {
+                            $temp.css("position", "unset");
+                        }, 500);
+
+                    });
+
+
+                    {#window.location.reload();#}
+                }
+
+            })
+
+        })
+    </script>
+
+</div>
+
+
+
+
