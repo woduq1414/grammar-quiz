@@ -41,7 +41,7 @@ if socket.gethostname()[:7] == "DESKTOP":
 
 else:
 
-    
+
     SECRET_KEY = os.environ.get('SECRET_KEY', None)
     print(os.environ.get('GOOGLE_CREDENTIALS', None))
     print(json.loads(os.environ.get('GOOGLE_CREDENTIALS', None)))
