@@ -223,10 +223,7 @@ body, main {
     cursor: pointer;
 }
 
-.highlight_word {
-    font-size: 2rem;
-    color: red;
-}
+
 
 .resultImage {
     height: 200px;
@@ -268,4 +265,9 @@ body, main {
     background-color: #e3e3e3;
 
 
+}
+
+.highlight_word {
+    font-size: 2rem;
+    color: red;
 }
