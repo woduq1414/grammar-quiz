@@ -59,9 +59,10 @@ def make_quiz(quiz_rows, not_selected_quiz_rows):
                 f = True
             elif f is True:
                 if c == "]":
+                    key = [x.strip() for x in "".join(stack).split("/")]
                     key_list.append({
                         "nth_word": space_count,
-                        "key": "".join(stack).split("/")
+                        "key": key
                     })
                     stack.clear()
                     f = False
@@ -119,7 +120,7 @@ def make_quiz(quiz_rows, not_selected_quiz_rows):
                 f = True
             elif f is True:
                 if c == "]":
-                    key = "".join(stack).split("/")
+                    key = [x.strip() for x in "".join(stack).split("/")]
                     random.shuffle(key)
                     key_list.append({
                         "nth_word": space_count,
@@ -287,7 +288,20 @@ def answer():
     session["solved_quiz"].append(session["current_quiz"]["quiz_seq"])
     correct_sentence = current_quiz["correct_sentence"]
     if current_quiz["type"] == "choose":
-        wrong_sentence = current_quiz["wrong_sentence"]
+        wrong_part = " ".join(current_quiz["wrong_sentence"].split()[
+                              current_quiz["wrong_nth_word"][0]: current_quiz["wrong_nth_word"][-1] + 1])
+        correct_part = " ".join(current_quiz["correct_sentence"].split()[
+                              current_quiz["wrong_nth_word"][0]: current_quiz["wrong_nth_word"][-1] + 1])
+
+        c = 0
+        for a,b in zip(wrong_part.split(), correct_part.split()):
+            if a == b :
+                c += 1
+            else:
+                break
+
+        print(wrong_part, correct_part)
+
         option = request.form.get("option", None)
         print(option)
 
@@ -295,29 +309,38 @@ def answer():
             return abort(400)
         option = int(option)
 
-        wrong_index = diff_commonPrefix(correct_sentence, wrong_sentence)
-        space_count = 0
-        f = False
-        start_pos, last_pos = -1, -1
-        for i, c in enumerate(wrong_sentence):
-            if c == " ":
-                space_count = space_count + 1
-                if f is True:
-                    last_pos = i - 1
-                    break
-                if space_count == option:
-                    start_pos = i + 1
-                    f = True
-
-        print(start_pos, last_pos + len(session["current_quiz"]["wrong_key"]))
-        print(wrong_index)
-        if any([True for x in range(len(session["current_quiz"]["wrong_key"])) if
-                start_pos <= wrong_index + x <= last_pos]):
+        if option in current_quiz["wrong_nth_word"][c:]:
             print("success")
             return get_result(True, "choose")
         else:
             print("no!")
             return get_result(False, "choose")
+
+
+
+        # wrong_index = diff_commonPrefix(correct_sentence, wrong_sentence)
+        # space_count = 0
+        # f = False
+        # start_pos, last_pos = -1, -1
+        # for i, c in enumerate(wrong_sentence):
+        #     if c == " ":
+        #         space_count = space_count + 1
+        #         if f is True:
+        #             last_pos = i - 1
+        #             break
+        #         if space_count == option:
+        #             start_pos = i + 1
+        #             f = True
+        #
+        # print(start_pos, last_pos + len(session["current_quiz"]["wrong_key"]))
+        # print(wrong_index)
+        # if any([True for x in range(len(session["current_quiz"]["wrong_key"])) if
+        #         start_pos <= wrong_index + x <= last_pos]):
+        #     print("success")
+        #     return get_result(True, "choose")
+        # else:
+        #     print("no!")
+        #     return get_result(False, "choose")
 
 
     elif current_quiz["type"] == "option":
