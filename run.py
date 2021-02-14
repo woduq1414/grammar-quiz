@@ -37,7 +37,7 @@ def shutdown_session(exception=None):
 @app.route('/', defaults={'path': ''}, methods=['GET'])
 # @app.route('/<string:path>', methods=['GET'])
 def catch_all(path):
-    return render_template('index.html')
+    return render_template('index_new.html')
 
 
 @app.before_request
