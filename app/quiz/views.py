@@ -36,7 +36,7 @@ def index():
 
     quiz_rows = copy.deepcopy(quiz_data)
 
-    return render_template("index.html")
+    return render_template("index_new.html")
 
 
 def make_quiz(quiz_rows, not_selected_quiz_rows):

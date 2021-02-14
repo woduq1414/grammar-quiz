@@ -52,6 +52,6 @@ def get_image(path):
 
 @others_bp.route("/index")
 def index():
-    resp = make_response(render_template("index.html"))
+    resp = make_response(render_template("index_new.html"))
     resp.set_cookie('PJAX-URL', base64.b64encode(request.url.encode("UTF-8")), max_age=None, expires=None, path='/')
     return resp
