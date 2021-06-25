@@ -31,7 +31,7 @@ def is_local():
 
 def fetch_spread_sheet():
     from app.cache import cache
-    gc = gspread.authorize(credentials).open("문법따먹기")
+    gc = gspread.authorize(credentials).open("문법")
 
     wks = gc.get_worksheet(0)
 
